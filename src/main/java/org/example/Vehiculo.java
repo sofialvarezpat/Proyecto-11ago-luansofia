@@ -59,4 +59,15 @@ public abstract class Vehiculo {
     public void setPreciobase(double preciobase) {
         this.preciobase = preciobase;
     }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "placa='" + placa + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", anio=" + anio +
+                ", preciobase=" + preciobase +
+                '}';
+    }
 }
