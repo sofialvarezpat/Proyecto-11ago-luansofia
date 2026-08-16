@@ -31,8 +31,8 @@ public class Camion_Carga extends Vehiculo {
 
     @Override
     public double calcularPrecioFinal() {
-        double impuesto = 0.05; // 5% de impuesto
-        double recargoPorTonelada = this.capacidadToneladas * 500000.0; // $500.000 COP por tonelada
+        double impuesto = 0.05;
+        double recargoPorTonelada = this.capacidadToneladas * 500000.0;
         return this.getPreciobase() + (this.getPreciobase() * impuesto) + recargoPorTonelada;
     }
 }

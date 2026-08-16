@@ -51,7 +51,7 @@ public class Automovil extends Vehiculo {
     public double calcularPrecioFinal() {
         double impuesto = 0.08;
         if (this.tipoCombustible != null && this.tipoCombustible.equalsIgnoreCase("Eléctrico")) {
-            impuesto = 0.04; // Incentivo ambiental del 4%
+            impuesto = 0.04;
         }
         return this.getPreciobase() + (this.getPreciobase() * impuesto);
     }

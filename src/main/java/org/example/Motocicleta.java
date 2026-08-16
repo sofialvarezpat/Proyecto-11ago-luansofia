@@ -31,9 +31,9 @@ public class Motocicleta extends Vehiculo {
 
     @Override
     public double calcularPrecioFinal() {
-        double impuesto = 0.03; // 3% de impuesto de matrícula
+        double impuesto = 0.03;
         if (this.cilindraje > 500) {
-            impuesto += 0.02; // Recargo adicional del 2% por alto cilindraje
+            impuesto += 0.02;
         }
         return this.getPreciobase() + (this.getPreciobase() * impuesto);
     }
