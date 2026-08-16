@@ -1,18 +1,18 @@
 package org.example;
 
-public class Camion_Carga extends Vehiculo{
+public class Camion_Carga extends Vehiculo {
     private double capacidadToneladas;
 
-    public Camion_Carga (){}
+    public Camion_Carga() {}
 
     public Camion_Carga(String placa, String marca, String modelo, int anio, double precioBase,
-                       double capacidadToneladas) {
+                        double capacidadToneladas) {
         super(placa, marca, modelo, anio, precioBase);
-        this.capacidadToneladas =capacidadToneladas;
+        this.setCapacidadToneladas(capacidadToneladas);
     }
 
     public double getCapacidadToneladas() {
-        return capacidadToneladas;
+        return this.capacidadToneladas;
     }
 
     public void setCapacidadToneladas(double capacidadToneladas) {
@@ -25,8 +25,14 @@ public class Camion_Carga extends Vehiculo{
 
     @Override
     public String toString() {
-        return "Camion_Carga{" +
-                "capacidadToneladas=" + capacidadToneladas +
-                '}';
+        return super.toString() + " | Tipo: Camión de carga | Capacidad: " + this.capacidadToneladas + " ton";
+    }
+
+
+    @Override
+    public double calcularPrecioFinal() {
+        double impuesto = 0.05; // 5% de impuesto
+        double recargoPorTonelada = this.capacidadToneladas * 500000.0; // $500.000 COP por tonelada
+        return this.getPreciobase() + (this.getPreciobase() * impuesto) + recargoPorTonelada;
     }
 }

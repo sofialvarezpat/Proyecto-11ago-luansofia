@@ -1,73 +1,93 @@
 package org.example;
 
 public abstract class Vehiculo {
-    protected String placa;
-    protected String marca;
-    protected String modelo;
-    protected int anio;
-    protected double preciobase;
-
+    private String placa;
+    private String marca;
+    private String modelo;
+    private int anio;
+    private double preciobase;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String Placa, String Marca, String Modelo, int Anio, double preciobase) {//esto es para editar
-        this.placa = Placa;
-        this.marca = Marca;
-        this.modelo = Modelo;
-        this.anio = Anio;
-        this.preciobase = preciobase;
-
+    public Vehiculo(String placa, String marca, String modelo, int anio, double preciobase) {
+        this.setPlaca(placa);
+        this.setMarca(marca);
+        this.setModelo(modelo);
+        this.setAnio(anio);
+        this.setPreciobase(preciobase);
     }
 
     public String getPlaca() {
-        return placa;
+        return this.placa;
     }
 
     public void setPlaca(String placa) {
-        this.placa = placa;
+        if (placa != null && !placa.trim().isEmpty()) {
+            this.placa = placa;
+        } else {
+            System.out.println("Error: la placa no puede estar vacía.");
+        }
     }
 
     public String getMarca() {
-        return marca;
+        return this.marca;
     }
 
     public void setMarca(String marca) {
-        this.marca = marca;
+        if (marca != null && !marca.trim().isEmpty()) {
+            this.marca = marca;
+        } else {
+            System.out.println("Error: la marca no puede estar vacía.");
+        }
     }
 
     public String getModelo() {
-        return modelo;
+        return this.modelo;
     }
 
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        if (modelo != null && !modelo.trim().isEmpty()) {
+            this.modelo = modelo;
+        } else {
+            System.out.println("Error: el modelo no puede estar vacío.");
+        }
     }
 
     public int getAnio() {
-        return anio;
+        return this.anio;
     }
 
     public void setAnio(int anio) {
-        this.anio = anio;
+        int anioActual = java.time.Year.now().getValue();
+        if (anio >= 1990 && anio <= anioActual) {
+            this.anio = anio;
+        } else {
+            System.out.println("Error: el año debe estar entre 1990 y " + anioActual + ".");
+        }
     }
 
     public double getPreciobase() {
-        return preciobase;
+        return this.preciobase;
     }
 
     public void setPreciobase(double preciobase) {
-        this.preciobase = preciobase;
+        if (preciobase > 0) {
+            this.preciobase = preciobase;
+        } else {
+            System.out.println("Error: el precio base debe ser mayor a 0.");
+        }
     }
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
-                "placa='" + placa + '\'' +
-                ", marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", anio=" + anio +
-                ", preciobase=" + preciobase +
-                '}';
+        return "Placa: " + this.placa + " | Marca: " + this.marca + " | Modelo: " + this.modelo + " | Año: " + this.anio;
+    }
+
+
+    public abstract double calcularPrecioFinal();
+
+    public String mostrarFicha() {
+        return this.toString();
     }
 }
