@@ -25,7 +25,11 @@ public abstract class Vehiculo {
     }
 
     public void setPlaca(String placa) {
-        this.placa = placa;
+        if (placa != null && !placa.trim().isEmpty()) {
+            this.placa = placa;
+        } else {
+            System.out.println("Error: la placa no puede estar vacía.");
+        }
     }
 
     public String getMarca() {
@@ -33,7 +37,11 @@ public abstract class Vehiculo {
     }
 
     public void setMarca(String marca) {
-        this.marca = marca;
+        if (marca != null && !marca.trim().isEmpty()) {
+            this.marca = marca;
+        } else {
+            System.out.println("Error: la marca no puede estar vacía.");
+        }
     }
 
     public String getModelo() {
@@ -41,7 +49,11 @@ public abstract class Vehiculo {
     }
 
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        if (modelo != null && !modelo.trim().isEmpty()) {
+            this.modelo = modelo;
+        } else {
+            System.out.println("Error: el modelo no puede estar vacío.");
+        }
     }
 
     public int getAnio() {
@@ -49,7 +61,12 @@ public abstract class Vehiculo {
     }
 
     public void setAnio(int anio) {
-        this.anio = anio;
+        int anioActual = java.time.Year.now().getValue();
+        if (anio >= 1990 && anio <= anioActual) {
+            this.anio = anio;
+        } else {
+            System.out.println("Error: el año debe estar entre 1990 y " + anioActual + ".");
+        }
     }
 
     public double getPreciobase() {
@@ -57,7 +74,11 @@ public abstract class Vehiculo {
     }
 
     public void setPreciobase(double preciobase) {
-        this.preciobase = preciobase;
+        if (preciobase > 0) {
+            this.preciobase = preciobase;
+        } else {
+            System.out.println("Error: el precio base debe ser mayor a 0.");
+        }
     }
 
     @Override

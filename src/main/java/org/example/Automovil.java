@@ -19,7 +19,11 @@ public class Automovil  extends Vehiculo {
     }
 
     public void setNumeroPuertas(int numeroPuertas) {
-        this.numeroPuertas = numeroPuertas;
+        if (numeroPuertas >= 2 && numeroPuertas <= 5) {
+            this.numeroPuertas = numeroPuertas;
+        } else {
+            System.out.println("Error: el número de puertas debe estar entre 2 y 5.");
+        }
     }
 
     public String getTipoCombustible() {
@@ -27,7 +31,14 @@ public class Automovil  extends Vehiculo {
     }
 
     public void setTipoCombustible(String tipoCombustible) {
-        this.tipoCombustible = tipoCombustible;
+        if (tipoCombustible != null &&
+                (tipoCombustible.equalsIgnoreCase("Gasolina") ||
+                        tipoCombustible.equalsIgnoreCase("Diésel") ||
+                        tipoCombustible.equalsIgnoreCase("Eléctrico"))) {
+            this.tipoCombustible = tipoCombustible;
+        } else {
+            System.out.println("Error: el tipo de combustible debe ser 'Gasolina', 'Diésel' o 'Eléctrico'.");
+        }
     }
 
     @Override

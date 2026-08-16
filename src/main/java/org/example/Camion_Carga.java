@@ -16,7 +16,11 @@ public class Camion_Carga extends Vehiculo{
     }
 
     public void setCapacidadToneladas(double capacidadToneladas) {
-        this.capacidadToneladas = capacidadToneladas;
+        if (capacidadToneladas > 0) {
+            this.capacidadToneladas = capacidadToneladas;
+        } else {
+            System.out.println("Error: la capacidad en toneladas debe ser mayor a 0.");
+        }
     }
 
     @Override

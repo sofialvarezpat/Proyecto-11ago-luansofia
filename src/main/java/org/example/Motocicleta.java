@@ -16,7 +16,12 @@ public class Motocicleta extends Vehiculo{
     }
 
     public void setCilindraje(int cilindraje) {
-        this.cilindraje = cilindraje;
+        if (cilindraje > 0) {
+            this.cilindraje = cilindraje;
+        } else {
+            System.out.println("Error: el cilindraje debe ser mayor a 0.");
+        }
+
     }
 
     @Override
